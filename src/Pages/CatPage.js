@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { getCatsBreeds, getCatImg } from "../services/cat";
+import { NavButton } from "../components/NavButton";
 
 export const CatPage = () => {
   const [cats, setCats] = useState([]);
@@ -52,30 +53,9 @@ export const CatPage = () => {
               </section>
               <div className="border-4 mt-5 border-blue-300 rounded-full"></div>
               <section className="mt-5 flex flex-row justify-between">
-                <a
-                  href={cat.wikipedia_url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="border-4 border-blue-400 rounded-full p-2  bg-blue-200 hover:text-white hover:bg-blue-500"
-                >
-                  Wikipedia
-                </a>
-                <a
-                  href={cat.cfa_url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="border-4 border-blue-400 rounded-full p-2  bg-blue-200 hover:text-white hover:bg-blue-500"
-                >
-                  cfa.org
-                </a>
-                <a
-                  href={cat.vcahospitals_url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="border-4 border-blue-400 rounded-full p-2  bg-blue-200 hover:text-white hover:bg-blue-500"
-                >
-                  VcaHospitals
-                </a>
+                <NavButton props={cat.wikipedia_url}>Wikipedia</NavButton>
+                <NavButton props={cat.cfa_url}>cfa.org</NavButton>
+                <NavButton props={cat.vcahospitals_url}>VcaHospitals</NavButton>
               </section>
             </section>
           </main>
